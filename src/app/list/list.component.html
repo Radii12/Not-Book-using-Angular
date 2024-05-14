@@ -1,0 +1,42 @@
+
+
+
+<div class="" style="height: 300px;">
+  <div class="container">
+<div class="row">
+  @for(task of listTasks; track task.index)
+  {
+    <div class="justify-content-between d-flex">
+      <ul class="style-none">
+
+      <div>
+
+
+        <li [ngStyle]="{'text-decoration-line': !task.complete ? 'line-through' : 'none'}" class="text-dark">
+          <p class="text-danger">{{ task.name }}</p>
+      </li>
+
+
+ </div>
+</ul>
+ <div>
+  @if(task.name.length !==0){
+    <button type="button" (click)="deleteTask(task.id)" class="btn btn-danger">Delete</button>
+
+      @if(task.complete){
+        <button (click)="completeTaske(task.id)" class="btn btn-primary">complete</button>
+
+      }
+      @if(!task.complete){
+        <button  type="button" (click)="undoTask(task.id)" class="btn btn-danger">Undo</button>
+
+      }
+  }
+        <!-- <button type="button" (click)="addTask(taskInput.value)" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Add</button> -->
+                  </div>
+    </div>
+  }
+
+</div>
+</div>
+</div>
